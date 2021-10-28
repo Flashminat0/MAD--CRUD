@@ -1,5 +1,7 @@
 package com.hyko.it20014940;
 
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
@@ -86,7 +88,26 @@ public class MainActivity extends AppCompatActivity {
                 builder.setCancelable(true);
                 builder.setTitle("User Entries");
                 builder.setMessage(buffer.toString());
+
+                builder.setNegativeButton("NO", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        dialogInterface.dismiss();
+                    }
+                });
+
+                builder.setPositiveButton("YES", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        Intent intent = new Intent(getApplicationContext(), StupidActivity.class);
+                        intent.putExtra("name", name.getText().toString());
+                        startActivity(intent);
+                    }
+                });
+
+
                 builder.show();
+
             }
         });
     }
