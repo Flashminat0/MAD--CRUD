@@ -43,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(MainActivity.this, "New Entry Not Inserted", Toast.LENGTH_SHORT).show();
             }
         });
+
         update.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -52,11 +53,13 @@ public class MainActivity extends AppCompatActivity {
 
                 Boolean checkupdatedata = DB.updateuserdata(nameTXT, contactTXT, dobTXT);
                 if (checkupdatedata == true)
+
                     Toast.makeText(MainActivity.this, "Entry Updated", Toast.LENGTH_SHORT).show();
                 else
                     Toast.makeText(MainActivity.this, "New Entry Not Updated", Toast.LENGTH_SHORT).show();
             }
         });
+
         delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
